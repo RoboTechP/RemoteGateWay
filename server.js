@@ -7,7 +7,7 @@ const router = express.Router();
 
 app.use(bodyParser.json()); // Middleware to parse JSON bodies
 
-router.post('/api/endpoint', (req, res) => {
+router.post('/api/recieve', (req, res) => {
     const messageobj = req.body;
 
     console.log('Received message object:', messageobj);
