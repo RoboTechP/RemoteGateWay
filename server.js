@@ -7,13 +7,10 @@ const router = express.Router();
 
 app.use(bodyParser.json()); // Middleware to parse JSON bodies
 
-router.post('/api/recieve', (req, res) => {
+router.post('/api/receive', (req, res) => {  // Changed to '/receive' to match your URL
     const messageobj = req.body;
 
     console.log('Received message object:', messageobj);
-
-    // You can process the message object here
-    // For now, we'll just respond with a success message
 
     res.status(200).json({
         message: 'Message received successfully',
