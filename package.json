@@ -1,0 +1,18 @@
+{
+  "name": "netlify-express-server",
+  "version": "1.0.0",
+  "description": "Express server as Netlify function",
+  "main": "index.js",
+  "scripts": {
+    "start": "netlify-lambda serve functions",
+    "build": "netlify-lambda build functions"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "serverless-http": "^2.7.0"
+  },
+  "devDependencies": {
+    "netlify-lambda": "^2.0.3"
+  }
+}
