@@ -8,8 +8,15 @@ const router = express.Router();
 
 app.use(bodyParser.json()); // Middleware to parse JSON bodies
 
-let receivedMessages = []; // Array to store received messages
+// In-memory storage for messages
+let receivedMessages = [];
 
+// Clear messages on each new build
+if (process.env.CLEAR_MESSAGES_ON_BUILD === 'true') {
+    receivedMessages = [];
+}
+
+// Endpoint to receive messages
 router.post('/api/receive', (req, res) => {
     const newMessage = req.body;
     receivedMessages.push(newMessage);
@@ -22,7 +29,7 @@ router.post('/api/receive', (req, res) => {
     });
 });
 
-// API endpoint to fetch messages
+// Endpoint to fetch messages
 router.get('/api/messages', (req, res) => {
     res.status(200).json(receivedMessages);
 });
@@ -30,6 +37,6 @@ router.get('/api/messages', (req, res) => {
 // Serve the frontend
 app.use('/', express.static(path.join(__dirname, '../public')));
 
-app.use('/', router); // Use direct routes
+app.use('/.netlify/functions/remoteServer', router);
 
 module.exports.handler = serverless(app);
