@@ -11,6 +11,3 @@
   from = "/*"
   to = "/index.html"
   status = 200
-
-[build.environment]
-  CLEAR_MESSAGES_ON_BUILD = "true"
