@@ -22,6 +22,10 @@ router.post('/api/receive', (req, res) => {
     });
 });
 
+
+
+
+
 // API endpoint to fetch messages
 router.get('/api/messages', (req, res) => {
     res.status(200).json(receivedMessages);

@@ -1,5 +1,4 @@
 const express = require('express');
-const serverless = require('serverless-http');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -38,6 +37,10 @@ router.get('/', (req, res) => {
     `);
 });
 
-app.use('/.netlify/functions/remoteServer', router);
+app.use('/', router);
 
-module.exports.handler = serverless(app);
+// Start the server
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
