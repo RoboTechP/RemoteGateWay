@@ -10,5 +10,5 @@ npm install
 if pm2 describe "server" > /dev/null; then
   pm2 restart "server"
 else
-  pm2 start index.js --name "server"
+  pm2 start server.js --name "server"
 fi
