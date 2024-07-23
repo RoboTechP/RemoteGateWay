@@ -24,8 +24,8 @@ jobs:
 
       - name: Ensure restart script is executable
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_IP_ADDRESS }} 'chmod +x /restart_script.sh'
+          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_IP_ADDRESS }} 'chmod +x }:RemoteGateWay/restart_script.sh'
 
       - name: Restart application
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_IP_ADDRESS }} '/restart_script.sh'
+          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_IP_ADDRESS }} 'RemoteGateway/restart_script.sh'
