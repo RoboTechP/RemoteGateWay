@@ -6,5 +6,9 @@ cd RemoteGateWay
 # Install dependencies
 npm install
 
-# Restart the application (assuming you're using pm2)
-pm2 restart all
+# Check if the app is already managed by pm2 and restart it, otherwise start it
+if pm2 describe "server" > /dev/null; then
+  pm2 restart "server"
+else
+  pm2 start index.js --name "server"
+fi
