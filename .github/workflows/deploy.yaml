@@ -20,7 +20,7 @@ jobs:
 
       - name: Copy files to EC2
         run: |
-          rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude='.git*' ./ ubuntu@${{ secrets.EC2_IP_ADDRESS }}:/RemoteGateWay
+          rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude='.git*' ./ ubuntu@${{ secrets.EC2_IP_ADDRESS }}:RemoteGateWay
 
       - name: Ensure restart script is executable
         run: |
