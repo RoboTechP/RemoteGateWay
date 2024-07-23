@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Navigate to the application directory
-cd /RemoteGateWay
+cd RemoteGateWay
 
 # Install dependencies
 npm install
