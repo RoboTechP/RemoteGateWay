@@ -28,4 +28,4 @@ jobs:
 
       - name: Restart application
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_IP_ADDRESS }} 'RemoteGateway/restart_script.sh'
+          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_IP_ADDRESS }} 'RemoteGateWay/restart_script.sh'
