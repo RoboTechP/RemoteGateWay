@@ -40,7 +40,7 @@ router.get('/', (req, res) => {
 app.use('/', router);
 
 // Start the server
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 80;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
