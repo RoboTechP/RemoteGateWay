@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
     res.send(`
         <html>
             <head>
-                <title>Received Messages</title>
+                <title>Received Messages on Remote </title>
             </head>
             <body>
                 <h1>Received Messages</h1>
