@@ -18,17 +18,14 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
 
-      - name: Debug SSH Agent
-        run: ssh-add -l
-
       - name: Copy files to EC2
         run: |
-          rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude='.git*' ./ ubuntu@${{ secrets.EC2_IP_ADDRESS }}:/RemoteGateWay
+          rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude='.git*' ./ ubuntu@${{ secrets.EC2_IP_ADDRESS }}:RemoteGateWay
 
       - name: Ensure restart script is executable
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_IP_ADDRESS }} 'chmod +x /RemoteGateWay/restart_script.sh'
+          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_IP_ADDRESS }} 'chmod +x restart_script.sh'
 
       - name: Restart application
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_IP_ADDRESS }} '/RemoteGateWay/restart_script.sh'
+          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_IP_ADDRESS }} 'restart_script.sh'
