@@ -1,8 +1,10 @@
 #!/bin/bash
-# restart_script.sh
+
+# Navigate to the application directory
+cd /RemoteGateWay
 
 # Install dependencies
 npm install
 
-# Restart the application using pm2
-npm run restart
+# Restart the application (assuming you're using pm2)
+pm2 restart all
