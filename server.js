@@ -11,7 +11,7 @@ let receivedMessages = []; // Array to store received messages
 router.post('/api/receive', (req, res) => {
     const newMessage = req.body;
     receivedMessages.push(newMessage);
-    sendMessageToTermux(message)
+    sendMessageToTermux(newMessage)
     console.log('Received message object:', newMessage);
 
     res.status(200).json({
