@@ -11,7 +11,7 @@ let receivedMessages = []; // Array to store received messages
 router.post('/api/receive', (req, res) => {
     const newMessage = req.body;
     receivedMessages.push(newMessage);
-
+    sendMessageToTermux(message)
     console.log('Received message object:', newMessage);
 
     res.status(200).json({
@@ -37,6 +37,19 @@ router.get('/', (req, res) => {
         </html>
     `);
 });
+
+
+async function sendMessageToTermux(message) {
+    try {
+      const response = await axios.post('http://localhost:3000/receive-message', {
+        message: message
+      });
+      console.log('Message sent successfully:', response.data);
+    } catch (error) {
+      console.error('Error sending message:', error);
+    }
+  }
+
 
 app.use('/', router);
 
