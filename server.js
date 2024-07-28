@@ -41,7 +41,7 @@ router.get('/', (req, res) => {
 
 async function sendMessageToTermux(message) {
     try {
-      const response = await axios.post('http://localhost:3000/receive-message', {
+      const response = await axios.post('http://localhost:4000/receive-message', {
         message: message
       });
       console.log('Message sent successfully:', response.data);
