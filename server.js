@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
                 <title>Received Messages on Remote </title>
             </head>
             <body>
-                <h1>Received Messages</h1>
+                <h1>Recieved Messages</h1>
                 <h2> Updated Code will be displayed here </h2>
                 ${messagesHtml}
             </body>
